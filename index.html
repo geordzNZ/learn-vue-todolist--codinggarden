@@ -30,9 +30,11 @@
       background-color: green;
       color: whitesmoke;
       font-size: 1em;
+      border-radius: 5px;
     }
     .btnDelete{
       background-color: red;
+      border-radius: 5px;
     }
     span{
       display:inline-block;
@@ -40,6 +42,9 @@
     }
     .done{
       text-decoration: line-through;
+    }
+    #admin{
+      margin-top: 5px;
     }
   </style>
 
@@ -54,14 +59,19 @@
         <button type="submit" name="newTodoAdd" id="newTodoAdd">Add</button>
       </form>
     </div>
-    <button @click="allDone" type="button">All Done</button>
-<ul>
-  <li v-for="todo in todos">
-    <input type="checkbox" v-model=todo.done>
-    <span :class="{done: todo.done}">{{todo.title}}</span>
-    <button @click="removeTodo(todo)" type="button" class="btnDelete">X</button>
-  </li>
-</ul>
+    <div id="admin">
+      <label for="adminBtns">Admin: </label>
+      <button @click="allDone" type="button">All Done</button>
+      <button @click="allClear" type="button">Clear List</button>
+    </div>
+
+    <ul>
+      <li v-for="todo in todos">
+        <input type="checkbox" v-model=todo.done>
+        <span :class="{done: todo.done}">{{todo.title}}</span>
+        <button @click="removeTodo(todo)" type="button" class="btnDelete">X</button>
+      </li>
+    </ul>
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>

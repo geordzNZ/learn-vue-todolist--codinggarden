@@ -22,6 +22,9 @@ const app = new Vue({
   },
   allDone(){
     this.todos.forEach(todo=> todo.done = true)
+  },
+  allClear(){
+    this.todos = []
   }
 
   }
