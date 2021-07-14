@@ -11,6 +11,14 @@
 <body>
   <main id="app">
     <h3>{{title}}</h3>
+    <form @submit.prevent="addTodo">
+      <label for="newTodo">New todo</label>
+      <input v-model="newTodoText" type="text" name="newTodo" id="newTodo">
+      <button type="submit" name="btnAdd">Add</button>
+    </form>
+<ul>
+  <li v-for="todo in todos">{{todo.title}}</li>
+</ul>
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
