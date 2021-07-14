@@ -2,11 +2,42 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link rel="stylesheet" href="https://ez-css.now.sh">
   <style>
+    body {
+      font-family: sans-serif;
+      padding-top: 1em;
+      padding-bottom: 1em;
+      font-size: 1.5em;
+      width: 80%;
+      margin: 0 auto;
+      /* border: 1px red solid; */
+    }
+    #formArea{
+      /* border: 1px red solid; */
+      width: 80%;
+      padding: 0;
+      margin: 0;
+    }
+    #newTodoInput {
+      height: 3em;
+      width: 50%;
+      border-radius: 5px;
+    }
+    button{
+      /* height: 2em; */
+      background-color: green;
+      color: whitesmoke;
+      font-size: 1em;
+    }
+    .btnDelete{
+      background-color: red;
+    }
+    span{
+      display:inline-block;
+      width: 500px;
+    }
     .done{
       text-decoration: line-through;
     }
@@ -16,17 +47,19 @@
 <body>
   <main id="app">
     <h3>{{title}}</h3>
-    <form @submit.prevent="addTodo">
-      <label for="newTodo">New todo</label>
-      <input v-model="newTodoText" type="text" name="newTodo" id="newTodo">
-      <button type="submit" name="btnAdd">Add</button>
-    </form>
+    <div id="formArea">
+      <form @submit.prevent="addTodo">
+        <label for="newTodo">New todo: </label>
+        <input v-model="newTodoText" type="text" name="newTodo" id="newTodoInput">
+        <button type="submit" name="newTodoAdd" id="newTodoAdd">Add</button>
+      </form>
+    </div>
     <button @click="allDone" type="button">All Done</button>
 <ul>
   <li v-for="todo in todos">
     <input type="checkbox" v-model=todo.done>
     <span :class="{done: todo.done}">{{todo.title}}</span>
-    <button @click="removeTodo(todo)" type="button">X</button>
+    <button @click="removeTodo(todo)" type="button" class="btnDelete">X</button>
   </li>
 </ul>
   </main>
