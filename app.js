@@ -1,7 +1,7 @@
 const app = new Vue({
   el: '#app',
   data: {
-    title: 'Hello World'
+    title: 'The Todo List'
   },
   methods: {
     addTodo() {
