@@ -15,6 +15,11 @@ const app = new Vue({
       });
       this.newTodoText = ''
       // console.log(this.todos)
-    }
+    },
+  removeTodo(todo) {
+    const todoIndex = this.todos.indexOf(todo);
+    this.todos.splice(todoIndex,1)
+  }
+
   }
 });
